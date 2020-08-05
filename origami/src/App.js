@@ -2,6 +2,8 @@ import React from 'react'
 import Header from './components/header'
 import styles from './App.module.css'
 import Aside from './components/aside'
+import Origamis from './components/origamis'
+import Footer from './components/footer'
 
 const App = () => {
   return (
@@ -9,7 +11,9 @@ const App = () => {
       <Header />
       <div className={styles.container}>
         <Aside />
+        <Origamis />
       </div>
+      <Footer />
     </div>
   )
 }
