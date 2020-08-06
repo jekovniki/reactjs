@@ -24,7 +24,6 @@ class Origamis extends Component {
     }
 
     render () {
-        console.log(this.state.origamis)
         const {
             origamis
         } = this.state
