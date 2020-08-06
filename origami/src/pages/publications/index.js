@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
 import styles from './index.module.css'
+import PageWrapper from '../../components/page-wrapper'
+import React, { Component } from 'react'
+import Origam from '../../components/origam'
+import Title from  '../../components/title'
 
-class Origamis extends Component {
+class Publications extends Component {
     constructor(props) {
         super(props)
 
@@ -28,12 +31,12 @@ class Origamis extends Component {
             origamis
         } = this.state
         return (
-            <div className={styles.container}>
-                <h1 className={styles.title}>Origamis</h1>
+          <PageWrapper>
+                <Title title="Publications" />
                 <div className={styles["origamis-wrapper"]}><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p></div>
-            </div>
+            </PageWrapper>
         )
     }
 }
 
-export default Origamis
+export default Publications

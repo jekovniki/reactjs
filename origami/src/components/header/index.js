@@ -10,8 +10,10 @@ const Header = () => {
         <header className={styles.navigation}>
             {
                 links.map(navElement => {
+                    console.log(navElement.link)
                     return (
-                        <Link href={navElement.link} title={navElement.title} type="header" />
+                        <Link key={navElement.title} href={navElement.link} title={navElement.title} type="header" />
+
                     )
                 })
             }
