@@ -1,42 +1,61 @@
+import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageWrapper from '../../components/page-wrapper'
-import React, { Component } from 'react'
-import Origam from '../../components/origam'
 import Title from  '../../components/title'
+import SubmitButton from '../../components/button/submit-button'
+import Input from '../../components/input'
 
-class Publications extends Component {
+
+class Register extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            origamis: []
+            email: "",
+            password: "",
+            rePassword: ""
         }
     }
 
-    getOrigamis = async () => {
-        const promise = await fetch('http://localhost:9999/api/origami')
-        const origamis = await promise.json()
+    onChange = (event, type) => {
+        const newState = {}
+        newState[type] = event.target.value
 
-        this.setState({
-            origamis
-        })
+        this.setState(newState)
     }
 
-    componentDidMount() {
-        this.getOrigamis()
-    }
-
-    render () {
+    render() {
         const {
-            origamis
+            email,
+            password,
+            rePassword
         } = this.state
-        return (
-          <PageWrapper>
-                <Title title="Publications" />
-                <div className={styles["origamis-wrapper"]}><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p></div>
-            </PageWrapper>
-        )
+    return (
+        <PageWrapper>
+        <div className={styles.container}>
+          <Title title="Register" />
+          <Input 
+          value={email}
+          onChange={(e) => this.onChange(e, 'email')}
+          label="Email"
+          id="email"/>
+          <Input 
+          value={password}
+          onChange={(e) => this.onChange(e, 'password')}
+          label="Password"
+          id="password"/>
+          <Input 
+          value={rePassword}
+          onChange={(e) => this.onChange(e, 'rePassword')}
+          label="Re-Password"
+          id="re-password"/>
+
+          <SubmitButton title="Register" />
+        </div>
+        </PageWrapper>
+      )
     }
 }
 
-export default Publications
+
+export default Register
